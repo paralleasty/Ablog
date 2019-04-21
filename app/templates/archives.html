@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Archive{% endblock %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            {% for y in year %}
+            <ul>
+                <li>{{ y }}</li>
+                <ul>
+                    {% for d in data[y] %}
+                    <li>
+                        <a href="{{ url_for('main.post', post_id=d.id) }}">{{ d.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination%}
+
+{% block title %}Home{% endblock %}
+
+{% block app_content %}
+    <!-- <div class="page-header">
+        <h1 class="display-3">Blog</h1>
+    </div> -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            {% include '_post.html' %}
+            {% if posts %}
+                <div>{{ render_pagination(pagination) }}</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
